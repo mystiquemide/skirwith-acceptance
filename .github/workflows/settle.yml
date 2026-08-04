@@ -21,7 +21,7 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: mystiquemide/skirwith@d75ca5398e4c78083336e6f6fbb2858e2f1ee785
+      - uses: mystiquemide/skirwith@66fd720e3ec619bf25326b37b1ae1c633f5dec6a
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KEEPERHUB_API_KEY: ${{ secrets.KEEPERHUB_API_KEY }}
