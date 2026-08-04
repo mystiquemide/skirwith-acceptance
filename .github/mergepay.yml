@@ -1,0 +1,25 @@
+# Trusted MergePay configuration for the acceptance repository.
+#
+# Loaded through the GitHub API at the default-branch ref only. Values are
+# the frozen v0.1 testnet contract from live KeeperHub verification.
+
+version: 1
+repository: mystiquemide/mergepay-acceptance
+chain:
+  id: 11155111
+  explorer: https://sepolia.etherscan.io
+  token:
+    address: "0x1c7d4b196cb0c7b01d743fbc6116a902379c7238"
+    symbol: USDC
+    decimals: 6
+payout:
+  requiredLabel: mergepay-approved
+  maximum: "25"
+  amounts:
+    mergepay-5: "5"
+    mergepay-10: "10"
+recipients:
+  mystiquemide: "0x05619d1a133623b322a8f366ea9594e4e586f26d"
+checks:
+  required: false
+  names: []

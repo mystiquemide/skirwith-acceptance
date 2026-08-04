@@ -1,0 +1,28 @@
+# Trusted MergePay settlement workflow for the acceptance repository.
+# Runs only on closed, merged pull requests; never checks out PR code.
+
+name: MergePay settlement
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  checks: read
+  pull-requests: write
+
+concurrency:
+  group: mergepay-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  settle:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mystiquemide/mergepay@94fcb1ba69c624ea98f9f28eca8c7db4d73511d8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEPERHUB_API_KEY: ${{ secrets.KEEPERHUB_API_KEY }}
+          MERGE_PAY_RECEIPT_SECRET: ${{ secrets.MERGE_PAY_RECEIPT_SECRET }}
