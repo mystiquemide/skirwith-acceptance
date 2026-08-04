@@ -21,7 +21,7 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: mystiquemide/mergepay@94fcb1ba69c624ea98f9f28eca8c7db4d73511d8
+      - uses: mystiquemide/mergepay@068fd4c194a92787368338483e1e4ed43316c311
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KEEPERHUB_API_KEY: ${{ secrets.KEEPERHUB_API_KEY }}
