@@ -4,7 +4,7 @@
 # the frozen v0.1 testnet contract from live KeeperHub verification.
 
 version: 1
-repository: mystiquemide/mergepay-acceptance
+repository: mystiquemide/skirwith-acceptance
 chain:
   id: 11155111
   explorer: https://sepolia.etherscan.io
