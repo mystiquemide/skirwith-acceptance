@@ -1,1 +1,1 @@
-Eligible contribution for MergePay payout acceptance.
+Eligible contribution for the legacy MergePay-format payout acceptance fixture preserved for Skirwith compatibility verification.

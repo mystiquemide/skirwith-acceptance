@@ -1,7 +1,7 @@
-# Trusted MergePay settlement workflow for the acceptance repository.
+# Trusted Skirwith settlement workflow for the acceptance repository.
 # Runs only on closed, merged pull requests; never checks out PR code.
 
-name: MergePay settlement
+name: Skirwith settlement
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: mergepay-${{ github.event.pull_request.number }}
+  group: skirwith-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 jobs:
@@ -21,8 +21,10 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: mystiquemide/skirwith@66fd720e3ec619bf25326b37b1ae1c633f5dec6a
+      - uses: mystiquemide/skirwith@dc705c96e5ff098edbaa9e42c19437cd2d2c8fc6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KEEPERHUB_API_KEY: ${{ secrets.KEEPERHUB_API_KEY }}
+          SKIRWITH_RECEIPT_SECRET: ${{ secrets.SKIRWITH_RECEIPT_SECRET }}
+          # Fallback for authenticated pre-rebrand receipts preserved in this repo.
           MERGE_PAY_RECEIPT_SECRET: ${{ secrets.MERGE_PAY_RECEIPT_SECRET }}
